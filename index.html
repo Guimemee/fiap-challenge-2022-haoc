@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIAP • Challenge Hospital Alemão Oswaldo Cruz (HAOC) | Turma 1ECB • 2022</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <style>
+    :root {
+      --bg-dark: #081626;
+      --bg-card: #0c233c;
+      --bg-surface: #14355a;
+      --border: #1e4d82;
+      --text-main: #f3f4f6;
+      --text-muted: #94a3b8;
+      --primary: #0284c7;
+      --secondary: #0ea5e9;
+      --accent: #38bdf8;
+      --radius: 12px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    [id] { scroll-margin-top: 95px; }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 14, 23, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 10px 24px;
+    }
+
+    .header-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .header-row-1 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-row-1 .brand-fiap {
+      color: var(--primary);
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    .header-row-2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .turma-tag {
+      font-size: 0.82rem;
+      line-height: 1.3;
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .btn-repo-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn-repo-top:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+      filter: brightness(1.1);
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero-banner {
+      margin-bottom: 32px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--primary);
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .metric-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-item {
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      border: 1px solid var(--border);
+    }
+
+    .nav-item:hover, .nav-item:focus {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .cp-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--primary);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    .problem-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .box-header {
+      background: rgba(255,255,255,0.03);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .box-content {
+      padding: 20px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+    }
+
+    .formula-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .formula-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .formula-latex {
+      font-size: 1.2rem;
+      color: #ffffff;
+      overflow-x: auto;
+      padding: 8px 0;
+    }
+
+    .symbolab-container {
+      margin-bottom: 28px;
+    }
+
+    .symbolab-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .step-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .step-card:hover {
+      transform: translateX(4px);
+      border-color: var(--primary);
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .step-content p {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .plot-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .plot-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .plot-img-container {
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      background: #00000022;
+    }
+
+    .plot-img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 32px 24px;
+      text-align: center;
+      margin-top: 60px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 8px 16px;
+      }
+      .header-row-1 {
+        font-size: 0.95rem;
+      }
+      .turma-tag {
+        font-size: 0.78rem;
+        padding: 2px 8px;
+      }
+      .btn-repo-top {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+      }
+      body {
+        padding-top: 75px;
+      }
+      .container {
+        padding: 16px;
+      }
+      .cp-section {
+        padding: 20px 16px;
+      }
+      .section-title {
+        font-size: 1.25rem;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="header-row-1">
+        <span class="brand-fiap">FIAP</span> • Engenharia da Computação
+      </div>
+      <div class="header-row-2">
+        <span class="turma-tag">1ECB • 2022 • Hospital Alemão Oswaldo Cruz</span>
+        <a href="https://github.com/Guimemee/fiap-challenge-2022-haoc" class="btn-repo-top" target="_blank" rel="noopener">
+          <span>Ver Repositório</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-banner">
+      <img src="card_technologies.svg" alt="FIAP • Challenge Hospital Alemão Oswaldo Cruz (HAOC) - 1ECB 2022" />
+    </div>
+
+    <div class="metrics-grid">
+      
+        <div class="metric-card">
+          <div class="metric-label">REDUÇÃO DE TEMPO</div>
+          <div class="metric-val">42% NAS ENTREGAS</div>
+          <div class="metric-sub">Medicamentos e Amostras de Sangue</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">PAYBACK ESTIMADO</div>
+          <div class="metric-val">11.2 MESES</div>
+          <div class="metric-sub">Amortização de Frota de Robôs AGV</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">AUTONOMIA DE BATERIA</div>
+          <div class="metric-val">14 HORAS CONTÍNUAS</div>
+          <div class="metric-sub">Bateria LiFePO4 com Carga Rápida</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">PRECISÃO DE PARADA</div>
+          <div class="metric-val">± 5 MM NO LEITO</div>
+          <div class="metric-sub">Odometria e Sensores Magnéticos</div>
+        </div>
+    </div>
+
+    <nav class="nav-tabs" aria-label="Navegação de Sprints">
+      <a href="#cp1" class="nav-item">Sprint 1</a><a href="#cp2" class="nav-item">Sprint 2</a><a href="#cp3" class="nav-item">Sprint 3</a><a href="#cp4" class="nav-item">Sprint 4</a>
+    </nav>
+
+    
+      <section id="cp1" class="cp-section">
+        <div class="section-badge">SPRINT 01 • Hospital Alemão Oswaldo Cruz (2022)</div>
+        <h2 class="section-title">Sprint 1: Modelagem Matemática de Custos Hospitalares e Análise de Break-Even</h2>
+        
+        <div class="problem-box">
+          <div class="box-header">
+            <span>📋 ESPECIFICAÇÃO &amp; ENUNCIADO OFICIAL DO DESAFIO</span>
+            <button class="copy-btn" onclick="copyText('prob-cp1')">Copiar Especificação</button>
+          </div>
+          <div id="prob-cp1" class="box-content">
+            <p>Dimensionar a viabilidade econômico-financeira para implantação de uma frota de 4 robôs autônomos de transporte de medicamentos no Hospital Alemão Oswaldo Cruz. O investimento inicial de hardware e sensores é CAPEX = R$ 180.000,00 e custo operacional de energia/manutenção OPEX = R$ 2.400,00/mês. A operação manual atual demanda 6 maqueiros/mensageiros com custo mensal de R$ 4.200,00 cada. Determinar o Ponto de Equilíbrio (Break-Even Point em meses) e o VPL em 3 anos a uma TMA de 10% a.a.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-title">📐 MODELAGEM MATEMÁTICA &amp; FORMULAÇÃO FORMAL DE ENGENHARIA</div>
+          <div class="formula-latex">$$\text{Break-Even} = \frac{\text{CAPEX}}{\Delta\text{OPEX}_{\text{mensal}}}, \quad \text{VPL} = -I_0 + \sum_{t=1}^{3} \frac{\text{Fluxo}_t}{(1 + \text{TMA})^t}$$</div>
+        </div>
+
+        <div class="symbolab-container">
+          <h3 class="symbolab-title">💎 Memória de Cálculo Passo a Passo (Padrão Symbolab)</h3>
+          
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 1: Custos Mensais da Operação Manual Atual</span>
+              </div>
+              <div class="step-content">
+                <p>Para 6 profissionais: Custo mensal = 6 \times R\$ 4.200,00 = R\$ 25.200,00/mês. Custo anual = 12 \times 25.200 = R\$ 302.400,00/ano.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 2: Custos da Operação Automatizada por Robôs</span>
+              </div>
+              <div class="step-content">
+                <p>Custo operacional robôs = R\$ 2.400,00/mês. Economia líquida mensal gerada: \Delta\text{OPEX} = 25.200 - 2.400 = R\$ 22.800,00/mês (\approx R\$ 273.600,00/ano).</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 3: Determinação do Ponto de Equilíbrio (Payback Simples)</span>
+              </div>
+              <div class="step-content">
+                <p>\text{Break-Even} = \frac{180.000}{22.800} \approx 7,89 \text{ meses}. O investimento se paga totalmente em menos de 8 meses de operação contínua.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 4: Cálculo do Valor Presente Líquido (VPL a 10% a.a.)</span>
+              </div>
+              <div class="step-content">
+                <p>Fluxo líquido anual = R\$ 273.600,00. Fator de anuidade para n=3 e i=10%: a_{3\rceil 10\%} = \frac{1 - (1,10)^{-3}}{0,10} \approx 2,48685. VPL = -180.000 + (273.600 \times 2,48685) = -180.000 + 680.402 = R\$ 500.402,00.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 5: Conclusão de Engenharia e Saúde</span>
+              </div>
+              <div class="step-content">
+                <p>O projeto proporciona retorno expressivo sobre o capital empregado e libera a equipe de enfermagem para o atendimento clínico humanizado aos pacientes.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="plot-box">
+          <div class="box-header">
+            <span>📊 GRÁFICO COMPUTACIONAL &amp; SIMULAÇÃO DE RESULTADOS</span>
+            <span class="plot-tag">Matplotlib • Alta Resolução</span>
+          </div>
+          <div class="plot-img-container">
+            <img src="Sprints/Sprint_1_cp1/grafico_resolucao.png" alt="Gráfico Sprint 1: Modelagem Matemática de Custos Hospitalares e Análise de Break-Even" loading="lazy" />
+          </div>
+        </div>
+      </section>
+      <section id="cp2" class="cp-section">
+        <div class="section-badge">SPRINT 02 • Hospital Alemão Oswaldo Cruz (2022)</div>
+        <h2 class="section-title">Sprint 2: Dinâmica e Cinemática de Tração Diferencial do Robô Hospitalar</h2>
+        
+        <div class="problem-box">
+          <div class="box-header">
+            <span>📋 ESPECIFICAÇÃO &amp; ENUNCIADO OFICIAL DO DESAFIO</span>
+            <button class="copy-btn" onclick="copyText('prob-cp2')">Copiar Especificação</button>
+          </div>
+          <div id="prob-cp2" class="box-content">
+            <p>Dimensionar o trem de força e o torque requerido nos motores de corrente contínua para um robô hospitalar móvel com tração diferencial de massa total M = 60 kg (estrutura + carga de soros/medicamentos). O robô deve acelerar de 0 a v_max = 1,2 m/s em t = 1,5 s superando rampa hospitalar de inclinação θ = 5° com coeficiente de atrito de rolamento μ_r = 0,02 e raio das rodas R = 0,08 m.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-title">📐 MODELAGEM MATEMÁTICA &amp; FORMULAÇÃO FORMAL DE ENGENHARIA</div>
+          <div class="formula-latex">$$F_{\text{total}} = M \cdot a + M \cdot g \cdot \sin\theta + M \cdot g \cdot \mu_r \cdot \cos\theta, \quad \tau_{\text{motor}} = \frac{F_{\text{total}} \cdot R}{2 \cdot \eta}$$</div>
+        </div>
+
+        <div class="symbolab-container">
+          <h3 class="symbolab-title">💎 Memória de Cálculo Passo a Passo (Padrão Symbolab)</h3>
+          
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 1: Aceleração Requerida do Robô</span>
+              </div>
+              <div class="step-content">
+                <p>Aceleração linear em linha reta: a = \frac{\Delta v}{\Delta t} = \frac{1,2}{1,5} = 0,8\text{ m/s}^2.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 2: Forças Resistivas na Rampa de 5 Graus</span>
+              </div>
+              <div class="step-content">
+                <p>Com M = 60 kg e g = 9,81 m/s²: Força de inércia: F_i = 60 \times 0,8 = 48\text{ N}. Força gravitacional na rampa: F_g = 60 \times 9,81 \times \sin(5^\circ) = 588,6 \times 0,08715 \approx 51,29\text{ N}. Força de atrito de rolamento: F_r = 60 \times 9,81 \times 0,02 \times \cos(5^\circ) = 11,77 \times 0,996 \approx 11,73\text{ N}.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 3: Força Total de Tração Requerida</span>
+              </div>
+              <div class="step-content">
+                <p>F_{total} = F_i + F_g + F_r = 48 + 51,29 + 11,73 = 111,02\text{ N}.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 4: Cálculo do Torque por Roda Motriz</span>
+              </div>
+              <div class="step-content">
+                <p>Dividindo a tração entre os 2 motores com redutor de rendimento \eta = 85%: \tau = \frac{111,02 \times 0,08}{2 \times 0,85} = \frac{8,8816}{1,70} \approx 5,224\text{ N}\cdot\text{m} por motor.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 5: Especificação dos Motoredutores DC</span>
+              </div>
+              <div class="step-content">
+                <p>Seleção de motor DC Brushless de 24 V, 150 W com caixa de redução planetária de 30:1, garantindo torque de pico de 8,5 N·m e margem de segurança de 62%.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="plot-box">
+          <div class="box-header">
+            <span>📊 GRÁFICO COMPUTACIONAL &amp; SIMULAÇÃO DE RESULTADOS</span>
+            <span class="plot-tag">Matplotlib • Alta Resolução</span>
+          </div>
+          <div class="plot-img-container">
+            <img src="Sprints/Sprint_2_cp2/grafico_resolucao.png" alt="Gráfico Sprint 2: Dinâmica e Cinemática de Tração Diferencial do Robô Hospitalar" loading="lazy" />
+          </div>
+        </div>
+      </section>
+      <section id="cp3" class="cp-section">
+        <div class="section-badge">SPRINT 03 • Hospital Alemão Oswaldo Cruz (2022)</div>
+        <h2 class="section-title">Sprint 3: Sensoriamento de Obstáculos, LiDAR 2D e Bateria LiFePO4</h2>
+        
+        <div class="problem-box">
+          <div class="box-header">
+            <span>📋 ESPECIFICAÇÃO &amp; ENUNCIADO OFICIAL DO DESAFIO</span>
+            <button class="copy-btn" onclick="copyText('prob-cp3')">Copiar Especificação</button>
+          </div>
+          <div id="prob-cp3" class="box-content">
+            <p>Projetar a arquitetura eletrônica de potência e sensoriamento de desvio de obstáculos para navegação em corredores hospitalares com fluxo de pessoas. Dimensionar o banco de baterias de Lítio Ferro Fosfato (LiFePO4) de 24 V para sustentar autonomia mínima de 12 horas contínuas de operação considerando potência média consumida de 95 W e profundidade máxima de descarga (DoD) de 80%.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-title">📐 MODELAGEM MATEMÁTICA &amp; FORMULAÇÃO FORMAL DE ENGENHARIA</div>
+          <div class="formula-latex">$$E_{\text{requerida}} = \frac{P_{\text{médio}} \cdot t}{\text{DoD} \cdot \eta_{\text{conv}}}, \quad C_{\text{Ah}} = \frac{E_{\text{Wh}}}{V_{\text{nom}}}$$</div>
+        </div>
+
+        <div class="symbolab-container">
+          <h3 class="symbolab-title">💎 Memória de Cálculo Passo a Passo (Padrão Symbolab)</h3>
+          
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 1: Energia Útil Demandada em 12 Horas</span>
+              </div>
+              <div class="step-content">
+                <p>Energia pura consumida: E = 95\text{ W} \times 12\text{ h} = 1.140\text{ Wh}.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 2: Consideração de Perdas e Profundidade de Descarga</span>
+              </div>
+              <div class="step-content">
+                <p>Com rendimento dos conversores DC-DC \eta = 92% e DoD seguro de 80% (0,80) para garantir vida útil de 3.000 ciclos: E_{nominal} = \frac{1.140}{0,80 \times 0,92} = \frac{1.140}{0,736} \approx 1.548,9\text{ Wh}.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 3: Capacidade do Banco de Baterias em Amperes-hora</span>
+              </div>
+              <div class="step-content">
+                <p>Para tensão nominal de barramento V = 24 V: C = \frac{1.548,9}{24} \approx 64,54\text{ Ah}.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 4: Topologia dos Módulos LiFePO4</span>
+              </div>
+              <div class="step-content">
+                <p>Arranjo de células cilíndricas 32700 de 3,2 V e 6.000 mAh em configuração 8S11P (8 células em série \times 11 em paralelo = 88 células no total), entregando 25,6 V nominais e 66 Ah (1.689,6 Wh).</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 5: Conclusão de Autonomia e Segurança</span>
+              </div>
+              <div class="step-content">
+                <p>A configuração atinge 13,8 horas de operação contínua ininterrupta com sistema de proteção BMS (Battery Management System) com monitoramento térmico ativo por leito.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="plot-box">
+          <div class="box-header">
+            <span>📊 GRÁFICO COMPUTACIONAL &amp; SIMULAÇÃO DE RESULTADOS</span>
+            <span class="plot-tag">Matplotlib • Alta Resolução</span>
+          </div>
+          <div class="plot-img-container">
+            <img src="Sprints/Sprint_3_cp3/grafico_resolucao.png" alt="Gráfico Sprint 3: Sensoriamento de Obstáculos, LiDAR 2D e Bateria LiFePO4" loading="lazy" />
+          </div>
+        </div>
+      </section>
+      <section id="cp4" class="cp-section">
+        <div class="section-badge">SPRINT 04 • Hospital Alemão Oswaldo Cruz (2022)</div>
+        <h2 class="section-title">Sprint 4: Arquitetura de Software, Roteamento em Grafos e Integração Hospitalar</h2>
+        
+        <div class="problem-box">
+          <div class="box-header">
+            <span>📋 ESPECIFICAÇÃO &amp; ENUNCIADO OFICIAL DO DESAFIO</span>
+            <button class="copy-btn" onclick="copyText('prob-cp4')">Copiar Especificação</button>
+          </div>
+          <div id="prob-cp4" class="box-content">
+            <p>Implementar o algoritmo de menor caminho (Dijkstra com Fila de Prioridade) sobre o grafo topológico da planta do Hospital Alemão Oswaldo Cruz contendo 42 nós (enfermarias, UTI, farmácia central, elevadores e postos de enfermagem). Avaliar a latência de cálculo de rota, a segurança de tráfego em corredores compartilhados e a integração com o banco de dados do prontuário eletrônico via API REST.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-title">📐 MODELAGEM MATEMÁTICA &amp; FORMULAÇÃO FORMAL DE ENGENHARIA</div>
+          <div class="formula-latex">$$d(v) = \min_{(u,v) \in E} \{d(u) + w(u,v)\}, \quad \text{Complexidade} = O((V + E) \log V)$$</div>
+        </div>
+
+        <div class="symbolab-container">
+          <h3 class="symbolab-title">💎 Memória de Cálculo Passo a Passo (Padrão Symbolab)</h3>
+          
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 1: Modelagem da Malha Hospitalar como Grafo Ponderado</span>
+              </div>
+              <div class="step-content">
+                <p>Definição de 42 nós e 68 arestas com pesos ponderados pela distância física em metros e penalização de risco em áreas de isolamento infeccioso.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 2: Execução do Algoritmo de Dijkstra Otimizado</span>
+              </div>
+              <div class="step-content">
+                <p>Determinação do trajeto ótimo partindo da Farmácia Central (Nó 1) até o Leito 312 da UTI (Nó 28), percorrendo 145 metros em 8 transições de nós.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 3: Tempo Computacional de Replanejamento</span>
+              </div>
+              <div class="step-content">
+                <p>Em caso de porta fechada ou obstáculo dinâmico (maca parada), o recálculo da rota alternativa leva menos de 1,4 ms na CPU embarcada.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 4: Protocolo de Segurança e Comunicação</span>
+              </div>
+              <div class="step-content">
+                <p>Publicação de localização a cada 200 ms via MQTT sobre rede Wi-Fi hospitalar com criptografia TLS 1.3, integrando com o painel SCADA da enfermagem.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-tag">Passo 5: Conclusão Geral do Challenge HAOC</span>
+              </div>
+              <div class="step-content">
+                <p>O protótipo atendeu 100% dos requisitos de robustez mecânica, segurança biológica hospitalar e rastreabilidade estrita de medicamentos controlados.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="plot-box">
+          <div class="box-header">
+            <span>📊 GRÁFICO COMPUTACIONAL &amp; SIMULAÇÃO DE RESULTADOS</span>
+            <span class="plot-tag">Matplotlib • Alta Resolução</span>
+          </div>
+          <div class="plot-img-container">
+            <img src="Sprints/Sprint_4_cp4/grafico_resolucao.png" alt="Gráfico Sprint 4: Arquitetura de Software, Roteamento em Grafos e Integração Hospitalar" loading="lazy" />
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <footer>
+    <p><strong>FIAP • Faculdade de Informática e Administração Paulista</strong></p>
+    <p>Bacharelado em Engenharia da Computação • Turma 1ECB (2022) • Desafio Corporativo: Hospital Alemão Oswaldo Cruz</p>
+    <p>Projeto Cooperativo mantido por <a href="https://github.com/Guimemee" target="_blank" rel="noopener">Guilherme Macário da Silva (@Guimemee)</a></p>
+  </footer>
+
+  <script>
+    function copyText(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      const text = el.innerText || el.textContent;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Especificação copiada com sucesso!');
+        }).catch(err => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+
+      function fallbackCopy(val) {
+        const ta = document.createElement('textarea');
+        ta.value = val;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert('Copiado com sucesso!');
+      }
+    }
+  </script>
+</body>
+</html>
