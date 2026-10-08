@@ -1,0 +1,15 @@
+
+			<html>
+				<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PVKBoVN5WrudAD00bUTtwje_ytdMg10bHyxN8M7xwbJCvNDkSvPQvE0yX-qP9syHQQnL2-H-OfPggBkNype9oyJDb-VIovCY2Vbaayq9TEtoHCjM5PkcKYjh5hx7k4KLpkNbZPQKVa3tsfDc9jBGRO0GA-wue_LTofIYv51bNxpxDXGuqEA6TNwdq6HjlB45rdgdiIIwZPd5LgAmt-iInrBBJZutkk8kUUHAhMeLKu8xd4iFKR0d4jgQyiRbKcfK" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9vbjEuZmlhcC5jb20uYnIvdXBkb3duL3VwbG9hZF9maWFwL2FsdW5vcy90cmFiYWxob0dyYWR1YWNhby9hcnF1aXZvc0FuZXhvL0dsb2JhbCUyMFNvbHV0aW9uJTIwXzEubyUyMHNlbV8xRUNCX1Jlc29sdSVDMyVBNyVDMyVBM28lMjBEaWZlcmVuY2lhZGElMjBkZSUyMFByb2JsZW1hcy5kb2N4"/><script>
+					function fDownload(){
+						document.frmDownload.submit();
+					}
+				</script>
+				<body onload="javascript: fDownload();">
+					<form name="frmDownload" target="_blank" method="get" action="/Controle404/download.php">
+						<input type="hidden" name="file" value="upload_fiap/alunos/trabalhoGraduacao/arquivosAnexo/Global Solution _1.o sem_1ECB_Resolução Diferenciada de Problemas.docx">
+						<!--<input type="hidden" name="origem" value="asp">-->
+					</form>
+				</body>
+			</html>
+		
