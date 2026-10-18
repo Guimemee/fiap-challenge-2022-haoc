@@ -1,96 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
   <defs>
     <linearGradient id="bgGrad_fiap_challenge_2022_haoc" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#081626" />
-      <stop offset="50%" stop-color="#0c233c" />
-      <stop offset="100%" stop-color="#081626" />
+      <stop offset="0%" stop-color="#061220" />
+      <stop offset="50%" stop-color="#0a1e35" />
+      <stop offset="100%" stop-color="#040b14" />
     </linearGradient>
     <linearGradient id="pGrad_fiap_challenge_2022_haoc" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#0284c7" />
-      <stop offset="100%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#38bdf8" />
     </linearGradient>
     <pattern id="grid_fiap_challenge_2022_haoc" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e4d82" stroke-width="0.8" stroke-opacity="0.4" />
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e4d82" stroke-width="0.8" stroke-opacity="0.3" />
       <circle cx="40" cy="40" r="1.5" fill="#0284c7" fill-opacity="0.25" />
     </pattern>
   </defs>
 
-  <rect width="1200" height="520" fill="url(#bgGrad_fiap_challenge_2022_haoc)" rx="16" />
-  <rect width="1200" height="520" fill="url(#grid_fiap_challenge_2022_haoc)" rx="16" />
-  <rect width="1196" height="516" x="2" y="2" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-opacity="0.35" rx="14" />
+  <rect width="1200" height="680" fill="url(#bgGrad_fiap_challenge_2022_haoc)" rx="20" />
+  <rect width="1200" height="680" fill="url(#grid_fiap_challenge_2022_haoc)" rx="20" />
+  <rect width="1194" height="674" x="3" y="3" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-opacity="0.4" rx="18" />
 
-  <path d="M 40 40 L 280 40 L 310 70 L 600 70 L 620 50 L 1160 50" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.3" />
-  <circle cx="280" cy="40" r="3.5" fill="#0ea5e9" />
-  <circle cx="600" cy="70" r="3.5" fill="#0284c7" />
-  <circle cx="1160" cy="50" r="4" fill="#38bdf8" />
+  <!-- Linha Decorativa Tech -->
+  <path d="M 50 45 L 340 45 L 370 75 L 820 75 L 840 55 L 1150 55" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.35" />
+  <circle cx="340" cy="45" r="3.5" fill="#38bdf8" />
+  <circle cx="820" cy="75" r="3.5" fill="#0284c7" />
+  <circle cx="1150" cy="55" r="4" fill="#38bdf8" />
 
-  <g transform="translate(60, 85)">
-    <rect x="0" y="0" width="80" height="28" rx="6" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
-    <text x="40" y="19" fill="#0284c7" font-family="-apple-system, sans-serif" font-size="13" font-weight="800" text-anchor="middle" letter-spacing="1">FIAP</text>
-    <rect x="92" y="0" width="160" height="28" rx="6" fill="#14355a" stroke="#1e4d82" stroke-width="1.2" />
-    <text x="172" y="19" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">1ECB • 2022</text>
-    <rect x="264" y="0" width="260" height="28" rx="6" fill="#14355a" stroke="#38bdf8" stroke-width="1" />
-    <text x="394" y="19" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Hospital Alemão Oswaldo Cruz</text>
+  <!-- Badges Topo -->
+  <g transform="translate(60, 90)">
+    <rect x="0" y="0" width="85" height="34" rx="8" fill="#14355a" stroke="#0284c7" stroke-width="1.5" />
+    <text x="42.5" y="23" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="14" font-weight="900" text-anchor="middle" letter-spacing="1.5">FIAP</text>
+
+    <rect x="100" y="0" width="160" height="34" rx="8" fill="#14355a" stroke="#1e4d82" stroke-width="1.5" />
+    <text x="180" y="22" fill="#e2e8f0" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">1ECB • 2022</text>
+
+    <rect x="275" y="0" width="310" height="34" rx="8" fill="#14355a" stroke="#0284c7" stroke-width="1.5" />
+    <text x="430" y="22" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">🏥 Hospital Alemão Oswaldo Cruz</text>
   </g>
 
-  <g transform="translate(60, 160)">
-    <text x="0" y="42" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="30" font-weight="900" letter-spacing="-0.5">CHALLENGE HOSPITAL ALEMÃO OSWALDO CRUZ (HAOC)</text>
-    <text x="0" y="80" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="500">Robótica de Transporte Hospitalar, Telemetria de Leitos, Break-Even de Cust</text>
-    <text x="0" y="105" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Projeto Cooperativo de Inovação Corporativa • 4 Sprints Interdisciplinares</text>
+  <!-- Cabeçalho Principal -->
+  <g transform="translate(60, 175)">
+    <text x="0" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="900" letter-spacing="-0.5">CHALLENGE HOSPITAL ALEMÃO OSWALDO CRUZ (HAOC)</text>
+    <text x="0" y="80" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600">Robótica Móvel Autônoma (AGV), Telemetria de Leitos e Engenharia Hospitalar</text>
+    <text x="0" y="112" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="500">Projeto Cooperativo de Inovação Aberta • 4 Sprints Oficiais Homologadas</text>
   </g>
 
-  
-    <g transform="translate(560, 120)">
-      <rect width="270" height="76" rx="10" fill="#14355a" stroke="#1e4d82" stroke-width="1.2" />
-      <text x="16" y="24" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="1">REDUÇÃO DE TEMPO</text>
-      <text x="16" y="48" fill="#ffffff" font-family="'Fira Code', monospace" font-size="16" font-weight="800">42% NAS ENTREGAS</text>
-      <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Medicamentos e Amostras de Sangue</text>
-    </g>
-    <g transform="translate(850, 120)">
-      <rect width="270" height="76" rx="10" fill="#14355a" stroke="#1e4d82" stroke-width="1.2" />
-      <text x="16" y="24" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="1">PAYBACK ESTIMADO</text>
-      <text x="16" y="48" fill="#ffffff" font-family="'Fira Code', monospace" font-size="16" font-weight="800">11.2 MESES</text>
-      <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Amortização de Frota de Robôs AGV</text>
-    </g>
-    <g transform="translate(560, 210)">
-      <rect width="270" height="76" rx="10" fill="#14355a" stroke="#1e4d82" stroke-width="1.2" />
-      <text x="16" y="24" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="1">AUTONOMIA DE BATERIA</text>
-      <text x="16" y="48" fill="#ffffff" font-family="'Fira Code', monospace" font-size="16" font-weight="800">14 HORAS CONTÍNUAS</text>
-      <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Bateria LiFePO4 com Carga Rápida</text>
-    </g>
-    <g transform="translate(850, 210)">
-      <rect width="270" height="76" rx="10" fill="#14355a" stroke="#1e4d82" stroke-width="1.2" />
-      <text x="16" y="24" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="1">PRECISÃO DE PARADA</text>
-      <text x="16" y="48" fill="#ffffff" font-family="'Fira Code', monospace" font-size="16" font-weight="800">± 5 MM NO LEITO</text>
-      <text x="16" y="66" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Odometria e Sensores Magnéticos</text>
-    </g>
-
-  <g transform="translate(60, 420)">
-    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1">TECNOLOGIAS &amp; METODOLOGIAS DO DESAFIO:</text>
+  <!-- Grade 2x2 com Métricas Grandes e Nítidas -->
+  <!-- Card 1 -->
+  <g transform="translate(60, 320)">
+    <rect width="525" height="105" rx="14" fill="#0c233c" stroke="#1e4d82" stroke-width="1.5" />
+    <rect width="6" height="105" rx="3" fill="#0284c7" />
+    <text x="24" y="32" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" letter-spacing="1.2">REDUÇÃO DE TEMPO</text>
+    <text x="24" y="66" fill="#ffffff" font-family="'Fira Code', monospace" font-size="24" font-weight="900">42% NAS ENTREGAS</text>
+    <text x="24" y="90" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Medicamentos, Bolsas e Amostras de Sangue</text>
   </g>
-  
-    <g transform="translate(60, 450)">
-      <rect width="279.0" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="139.5" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">🏥 Hospital Alemão Oswaldo Cruz</text>
-    </g>
-    <g transform="translate(351.0, 450)">
-      <rect width="202.5" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="101.25" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">🤖 Robô AGV Hospitalar</text>
-    </g>
-    <g transform="translate(565.5, 450)">
-      <rect width="219.5" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="109.75" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">📐 Break-Even Financeiro</text>
-    </g>
-    <g transform="translate(797.0, 450)">
-      <rect width="194.0" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="97.0" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">⚡ Tração Diferencial</text>
-    </g>
-    <g transform="translate(1003.0, 450)">
-      <rect width="168.5" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="84.25" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">🔋 Bateria LiFePO4</text>
-    </g>
-    <g transform="translate(1183.5, 450)">
-      <rect width="202.5" height="28" rx="14" fill="#14355a" stroke="#0284c7" stroke-width="1" />
-      <text x="101.25" y="18" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" text-anchor="middle">📊 Dashboard de Leitos</text>
-    </g>
+
+  <!-- Card 2 -->
+  <g transform="translate(615, 320)">
+    <rect width="525" height="105" rx="14" fill="#0c233c" stroke="#1e4d82" stroke-width="1.5" />
+    <rect width="6" height="105" rx="3" fill="#38bdf8" />
+    <text x="24" y="32" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" letter-spacing="1.2">PAYBACK ESTIMADO</text>
+    <text x="24" y="66" fill="#ffffff" font-family="'Fira Code', monospace" font-size="24" font-weight="900">11.2 MESES</text>
+    <text x="24" y="90" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Amortização Completa da Frota de Robôs AGV</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g transform="translate(60, 445)">
+    <rect width="525" height="105" rx="14" fill="#0c233c" stroke="#1e4d82" stroke-width="1.5" />
+    <rect width="6" height="105" rx="3" fill="#0284c7" />
+    <text x="24" y="32" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" letter-spacing="1.2">AUTONOMIA DE BATERIA</text>
+    <text x="24" y="66" fill="#ffffff" font-family="'Fira Code', monospace" font-size="24" font-weight="900">14 HORAS CONTÍNUAS</text>
+    <text x="24" y="90" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Química LiFePO4 com Carga Rápida Automática</text>
+  </g>
+
+  <!-- Card 4 -->
+  <g transform="translate(615, 445)">
+    <rect width="525" height="105" rx="14" fill="#0c233c" stroke="#1e4d82" stroke-width="1.5" />
+    <rect width="6" height="105" rx="3" fill="#38bdf8" />
+    <text x="24" y="32" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" letter-spacing="1.2">PRECISÃO DE PARADA</text>
+    <text x="24" y="66" fill="#ffffff" font-family="'Fira Code', monospace" font-size="24" font-weight="900">± 5 MM NO LEITO</text>
+    <text x="24" y="90" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">Odometria de Alta Precisão &amp; Sensores Magnéticos</text>
+  </g>
+
+  <!-- Linha Inferior: Badges de Tecnologias Enquadradas perfeitamente -->
+  <g transform="translate(60, 580)">
+    <text x="0" y="0" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">TECNOLOGIAS &amp; METODOLOGIAS:</text>
+  </g>
+
+  <g transform="translate(60, 605)">
+    <!-- Tag 1 -->
+    <rect x="0" y="0" width="230" height="36" rx="10" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
+    <text x="115" y="23" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">🏥 Hospital Oswaldo Cruz</text>
+
+    <!-- Tag 2 -->
+    <rect x="245" y="0" width="200" height="36" rx="10" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
+    <text x="345" y="23" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">🤖 Robô AGV Hospitalar</text>
+
+    <!-- Tag 3 -->
+    <rect x="460" y="0" width="210" height="36" rx="10" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
+    <text x="565" y="23" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">📐 Break-Even Financeiro</text>
+
+    <!-- Tag 4 -->
+    <rect x="685" y="0" width="185" height="36" rx="10" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
+    <text x="777.5" y="23" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">⚡ Tração Diferencial</text>
+
+    <!-- Tag 5 -->
+    <rect x="885" y="0" width="195" height="36" rx="10" fill="#14355a" stroke="#0284c7" stroke-width="1.2" />
+    <text x="982.5" y="23" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700" text-anchor="middle">🔋 Bateria LiFePO4</text>
+  </g>
 </svg>
